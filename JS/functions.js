@@ -72,11 +72,14 @@ let ramdom = (6);
      *
      * Examples:
      * > calculateTip(0.20, 20) // returns 4
-     * > calculateTip(0.25, 25.50) // returns 6.375
+     * > calculateTip(0.25, 25.50) git// returns 6.375
      * > calculateTip(0.15, 33.42) // returns 5.013
      */
-function calculateTip=( 100, 200, 300);
-return
+function calculateTip (totalbill,tipPercent){
+    return (totalbill * tipPercent);
+
+    }
+console.log (calculateTip(100,0.1))
 
     /**
      * TODO:
@@ -84,7 +87,13 @@ return
      * prompt the user for the bill total and a percentage they would like to tip,
      * then display the dollar amount they should tip
      */
+alert ("Your bill is $100");
+    let customerBill = 100;
+    let tipPercentage = prompt ("Please leave tip amount in percentage");
 
+    let finalTip = (customerBill * tipPercentage);
+
+    alert("Your tip would be " + "$" + finalTip );
     /**
      * TODO:
      * Create a function named `applyDiscount`. This function should accept a price
@@ -99,6 +108,8 @@ return
      *
      * > applyDiscount(45.99, 0.12) // 40.4712
      */
-
-
+function applyDiscount(originalPrice, promo){
+    return (originalPrice - (originalPrice * promo))
+    }
+ console.log (applyDiscount(100,0.2));
 })()
