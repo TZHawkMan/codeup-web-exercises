@@ -1,5 +1,5 @@
 "use strict";
-(function() {
+(function(){
     /**
      * TODO:
      * Create a function called 'sayHello' that takes a parameter 'name'.
@@ -21,7 +21,7 @@
      *
      * console.log 'helloMessage' to check your work
      */
-    console.log(sayHello("Hawk"));
+    console.log(sayHello("Hawk"));//call a function, just type the function
 let helloMessage = sayHello("Hawk");
 console.log (helloMessage);
     /**
@@ -76,7 +76,7 @@ let ramdom = (6);
      * > calculateTip(0.15, 33.42) // returns 5.013
      */
 function calculateTip (totalbill,tipPercent){
-    return (totalbill * tipPercent);
+    return (totalbill * tipPercent) //"/100"; if I want to enter % sign with the number
 
     }
 console.log (calculateTip(100,0.1))
@@ -90,10 +90,12 @@ console.log (calculateTip(100,0.1))
 alert ("Your bill is $100");
     let customerBill = 100;
     let tipPercentage = prompt ("Please leave tip amount in percentage");
-
     let finalTip = (customerBill * tipPercentage);
-
     alert("Your tip would be " + "$" + finalTip );
+
+    //let userTip= prompt( what perscentage would you like to tip?
+    //let usebill = prompt (what is the bill total?)
+    //alert (the "amount to tip is $ + calculate tip(parsefloat(userTip),parsefloat (uswerBill)))
     /**
      * TODO:
      * Create a function named `applyDiscount`. This function should accept a price
@@ -112,4 +114,4 @@ function applyDiscount(originalPrice, promo){
     return (originalPrice - (originalPrice * promo))
     }
  console.log (applyDiscount(100,0.2));
-})()
+}());
