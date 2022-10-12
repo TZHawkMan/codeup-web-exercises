@@ -97,7 +97,23 @@
 //      * Test your function by passing it various values and checking for the expected
 //      * return value.
 //      */
-//
+function calculateTotal(luckyNum, totalAmount){
+    if(luckyNum === 0){
+        return totalAmount;
+
+    }else if( luckyNum === 1){
+        return totalAmount-(0.10* totalAmount);
+    }else if (luckyNum === 2){
+        return totalAmount-(0.25 * totalAmount);
+    }else if (luckyNum === 3) {
+        return totalAmount - (0.35 * totalAmount);
+    }else if (luckyNum === 4) {
+        return totalAmount - (0.50 * totalAmount);
+    }else if (luckyNum === 5)  {
+        return totalAmount - (1* totalAmount);
+
+    }
+}
 //     /**
 //      * TODO:
 //      * Uncomment the line below to generate a random number between 0 and 5.
@@ -106,8 +122,10 @@
 //      * and alerts to display to the user what their lucky number was, what their
 //      * price before the discount was, and what their price after the discount is.
 //      */
-// // Generate a random number between 0 and 6
-// // var luckyNumber = Math.floor(Math.random() * 6);
+ //Generate a random number between 0 and 6
+ var luckyNumber = Math.floor(Math.random() * 6);
+let userBill = prompt("what is total amount?");
+alert ("your lucky number is:" + luckyNumber = ". your total before discount: $" + userBill + '. Your total after the discount:$' +  calculateTotal( luckyNumber, userBill);)
 //
 //     /**
 //      * TODO:
@@ -127,6 +145,29 @@
 //      * Can you refactor your code to use functions?
 //      * HINT: The way we prompt for a value could be improved
 //      */
+//pseudo-code
+//1.need to use a confirm
+//2.need to use a prompt
+//3. need to be a number data type
+// if it is: alert if even or odd  , alert input + 100, alert positive or nagative.
+// if it is not: alert incorrect data type
+//4. if possible , refactor to function
 //
-//
-// })();
+function playgame(){
+
+
+let doesUserConfirm = confirm("do you want to play a game?");
+if (doesUserConfirm)
+{
+    let userNum = parseFloat(prompt("pick a number"));
+    if(!isNaN(userNum)){
+
+        alert (userNum % 2 === 0 ? "Number is even": "number is odd."}
+        alert  (userNum > 0 ? "number is positive.": "number is negative."
+            alert( "your number + 100 =" + (userNum + 100));
+} else {
+    alert ("sorry,what you entered is not a number!")
+}
+}
+playgame();
+//})();
