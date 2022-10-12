@@ -1,5 +1,6 @@
-// (function() {
-//     "use strict";
+ (function() {
+     "use strict";
+
 //
 //     /* ########################################################################## */
 //
@@ -22,18 +23,18 @@
 //      * Test your function by passing various string literals to it and
 //      * console.logging the function's return value
 //      */
-// //     prompt("what color do you like?")
-// //     function analyzeColor(color){
-// //         if (color === "red") {
-// //           (alert("I like red color"));
-// //
-// //         }else if (color ==="blue"){
-// //             alert ( "I like blue color");
-// //         }
-// //         else alert( " I don't know that color");
-// //     }
-// //
-// // analyzeColor("red");
+    prompt("what color do you like?")
+    function analyzeColor(color){
+        if (color === "red") {
+          (alert("I like red color"));
+
+        }else if (color ==="blue"){
+            alert ( "I like blue color");
+        }
+        else alert( " I don't know that color");
+    }
+
+analyzeColor("red");
 
 // console.log ("1");
 // console.log ("2");
