@@ -69,7 +69,18 @@ analyzeColor("red");
 //      * TODO:
 //      * Comment out the code above, and refactor your function to use a switch-case statement
 //      */function analyzeColor
-//
+function analyzeColor(color){
+      switch( color ){
+          case ("red"):
+              return ("I like red color");
+          case ("blue"):
+              return ("I like blue color");
+          default:
+              return("I don't know that color");
+
+      analyzeColor("red")
+      }
+ }
 //     /**
 //      * TODO:
 //      * Prompt the user for a color when the page loads, and pass the input from the
