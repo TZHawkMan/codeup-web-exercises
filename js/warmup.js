@@ -29,7 +29,12 @@ function NumFive (randomNum){
 // inBetween(0, 1, 0.5) returns true
 
 function inBetween(min,max,num){
-    return min < num < max;
+    if(min < num && num< max){
+        return true;
+
+    }else{
+        return false;
+    }
 
 }
 console.log (inBetween(25,26,25));
