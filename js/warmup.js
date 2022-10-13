@@ -1,6 +1,6 @@
 
 (function(){
-
+"use strict"
 
 //Warm-up: 2022.10.11
 //
@@ -15,6 +15,21 @@ function NumFive (randomNum){
     return randomNum * 5;
     }
 
+}
+
+
+
+
+//Warm-up 2022.10.13
+// Write a function named "inBetween" that accepts three inputs: min, max, num, and returns a boolean determining whether or not the "num" parameter is in between the min and max numbers.
+//
+// EX:
+// inBetween(1, 10, 5) returns true
+// inBetween(25, 26, 25) returns false
+// inBetween(0, 1, 0.5) returns true
+
+function inBetween(min,max,num){
+    return (min < num < max);
 }
 
 
