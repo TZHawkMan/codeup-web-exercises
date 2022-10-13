@@ -29,8 +29,17 @@ function NumFive (randomNum){
 // inBetween(0, 1, 0.5) returns true
 
 function inBetween(min,max,num){
-    return (min < num < max);
+    return min < num < max;
+
 }
+console.log (inBetween(25,26,25));
 
-
+// function inBetween(min,max,num){
+// let boolean;
+//    if(num < max && num > min){
+//        boolean = true;
+//        return ture;
+ //   }else {
+ //       return false;
+  //  }
 })()
