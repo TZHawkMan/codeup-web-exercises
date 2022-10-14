@@ -35,8 +35,9 @@ for (let i = 0; i< names.length;i++ ){
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
-//names.forEach(function (name);
-//console.log(name)
+names.forEach(function(name){
+    console.log(name);
+})
 
     /**
      * TODO:
@@ -56,4 +57,16 @@ console.log (first[0]);
 console.log (first[1]);
 for(let o = 4; o>=0; o--)
 console.log (first[o]);
+//answers with help of instructor
+function second(arr){
+    return arr[1];
+
+function third(arr){
+    return arr[2];
+
+function fourth(arr){
+    return arr[arr.length - 1];
+}
+}
+}
 })();
