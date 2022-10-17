@@ -47,4 +47,17 @@ console.log (inBetween(25,26,25));
  //   }else {
  //       return false;
   //  }
+
+// Warm-Up 2022.10.17:
+//
+// Create a function named "typePrinter" that accepts an array as an input, and logs the data type of each element to the console.
+//
+    let arr = [true, "Icon", 25, "66", false, 0];
+    function typePrinter(arr) {
+        for (let i =0; i < arr.length; i++){
+            console.log (typeof arr[i]);
+
+        }
+    }
+    typePrinter (arr)
 })()
