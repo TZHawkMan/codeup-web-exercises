@@ -29,6 +29,8 @@
      */
      person.sayHello = function(){
          alert( "Hello from " + person.firstName  + " " +  person.lastName);
+         // return 'hello from ${person.firstName} ${person.lastName}!';
+         //console.log(person.sayHello());
      };
      person.sayHello();
     /** TODO:
@@ -45,13 +47,20 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+     var shoppers = [
+      {name: 'Cameron', amount: 180},
+       {name: 'Ryan', amount: 250},
+         {name: 'George', amount: 320}
+     ];
+     shoppers.forEach(function(shopper){
+     let discountAmount =(shopper.amount * 0.12);
+     let discountTotal = shopper.amount -discountAmount;
+         if(shopper.amount > 200){
+             console.log('Hi ${shopper.name},your total was $${shopper.amount}, and you have a discount of $${discountAmount}.toFixed(2) to bring you the total of ${discountTotal}')
 
-    /** TODO:
+        // }
+     //}
+             /** TODO:
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
      * property. The author property should be an object with properties
@@ -63,31 +72,39 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+let books = [{
+ title: " no fear",
+ author: {
+     firstName:"Noname",
+     lastName:"H",
+ }
+         }];
 
-    /**
-     * TODO:
-     * Loop through the books array and output the following information about
-     * each book:
-     * - the book number (use the index of the book in the array)
-     * - the book title
-     * - author's full name (first name + last name)
-     *
-     * Example Console Output:
-     *
-     *      Book # 1
-     *      Title: The Salmon of Doubt
-     *      Author: Douglas Adams
-     *      ---
-     *      Book # 2
-     *      Title: Walkaway
-     *      Author: Cory Doctorow
-     *      ---
-     *      Book # 3
-     *      Title: A Brief History of Time
-     *      Author: Stephen Hawking
-     *      ---
-     *      ...
-     */
+
+             /**
+              * TODO:
+              * Loop through the books array and output the following information about
+              * each book:
+              * - the book number (use the index of the book in the array)
+              * - the book title
+              * - author's full name (first name + last name)
+              *
+              * Example Console Output:
+              *
+              *      Book # 1
+              *      Title: The Salmon of Doubt
+              *      Author: Douglas Adams
+              *      ---
+              *      Book # 2
+              *      Title: Walkaway
+              *      Author: Cory Doctorow
+              *      ---
+              *      Book # 3
+              *      Title: A Brief History of Time
+              *      Author: Stephen Hawking
+              *      ---
+              *      ...
+              */
 
     /**
      * Bonus:
@@ -99,5 +116,14 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+function createBook(title,author){
+let book = {
+   title: bookTitle,
+   author: author
+    }
+         }
+})()
 
-})();
+
+
+
