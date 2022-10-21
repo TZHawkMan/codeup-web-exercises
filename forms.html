@@ -5,14 +5,15 @@
     <title>Register With Us</title>
 </head>
 <body>
-<form method="POST" action="https://request-inspector.glitch.me/">
+<form method="GET" action="https://request-inspector.glitch.me/">
 
     <label for="email">Email:</label>
-    <input id="email" name="email" type="text">
+    <input id="email" name="email" type="text" placeholder="example@domain.com">
     <br><br>
     <label for="password">Password:</label>
     <input id="password" name="password" type="text">
-    <button type="submit">Submit</button><br><br>
+    <button type="submit">Submit</button>
+    <br><br>
     <label>Bio:</label>
     <textarea name="Bio"></textarea><br>
 
@@ -20,23 +21,21 @@
     <label>How did you hear about us:</label><br>
 
 
-    <input name="How did you hear about us" value="billboard" type="checkbox" check>Billboard<br>
+    <input name="How did you hear about us" value="billboard" type="radio" check>Billboard<br>
 
-    Radio advertisement <input type="checkbox" name="how idd you hear about us" value="radio advertisement"><br>
-    internet advertisement <input type="checkbox" name="how idd you hear about us" value="internet advertisement"><br>
-    other <input type="checkbox" name="how idd you hear about us" value="other"><br>
-<label>What web browser are you using?</label>
+    Radio advertisement <input type="radio" name="how idd you hear about us" value="radio advertisement"><br>
+    internet advertisement <input type="radio" name="how idd you hear about us" value="internet advertisement"><br>
+    other <input type="radio" name="how idd you hear about us" value="other"><br>
+    <label>What web browser are you using?</label>
     <select name="browser_preference">
         <option value="firefox">Firefox</option>
         <option value="chrome">Chrome</option>
         <option value="safari">Safari</option>
     </select>
-
+<button>Submit</button>
 </form>
 
 <br>
-
-
 
 
 </body>
