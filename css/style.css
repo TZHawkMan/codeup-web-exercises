@@ -2,3 +2,26 @@
     color: purple;
 
 }
+.fancy-header{
+    text-align: center
+}
+
+h2{
+    text-decoration: underline;
+    color: orange
+}
+
+html{
+    background-color: chartreuse;
+    background-repeat: no-repeat;
+    font-family: "Apple Symbols";
+}
+
+
+table {
+    font-size: large;
+}
+
+a:visited{
+    color: yellow;
+}
