@@ -7,4 +7,26 @@ body, html {
 }
 
 
+.message{
+margin:8px;
+    border: lightgray solid 1px
+border-radius: 4px;
+    padding: .5em
+}
+.message-info{
+    background-color: #ccdeff;
+    color: darkblue;
+}
+.message-warning{
+    background-color:#fdfbc9
+     color:darkgoldenrod;
+}
+.message-success {
+    backgound:#cff308
+    color:
+}
 
+.message-error {
+    color:darkred;
+    background: #fad3d7
+}

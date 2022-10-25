@@ -55,7 +55,7 @@ console.log (inBetween(25,26,25));
     let arr = [true, "Icon", 25, "66", false, 0];
     function typePrinter(arr) {
         for (let i =0; i < arr.length; i++){
-            console.log (typeof arr[i]);
+            console.log ( arr[i]);
 
         }
     }
@@ -93,9 +93,12 @@ console.log ("the average number is " + average + ".")
         }
     }
 
-
-
-
+//2020.10.25
+//Warm-up:
+//
+// Create a function named "filterNegativity" that accepts an array of numbers, and returns an array with only positive numbers.
+//
+// Ex: filterNegativity([5, -6, 2, 0, -5, -13]) // returns [5, 2, 0,]
 
 
 
