@@ -4,5 +4,14 @@
 }
 
 .list{
-    ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
+
+hr{
+    color: #95aa75;
+    opacity: 1;
+    border-width: thick;
+}
+
