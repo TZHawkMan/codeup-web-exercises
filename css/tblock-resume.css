@@ -3,10 +3,12 @@
 
 }
 
+
 .list{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding-top: 1em;
 }
 
 hr{
@@ -15,6 +17,44 @@ hr{
     border-width: thick;
 }
 
-.content{
+left-content{
+    padding-left: 0.5em;
+
+}
+.skills{
     padding-left: 2em;
+    color: black;
+    padding-bottom: 2em;
+}
+.academic{
+    color: black;
+    padding-bottom: 2em;
+    width: 100%;
+}
+
+.experience{
+    color:black;
+    width: 100%;
+}
+
+.right-content{
+
+
+
+
+
+}
+.projects{
+    color: black;
+    width: 100%;
+
+
+}
+
+.awards{
+    color: black;
+}
+
+h3{
+    color: #3B94D9;
 }
