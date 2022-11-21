@@ -24,7 +24,7 @@
 <!-- Mapbox JS -->
 <script src ="Keys.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-
+<script src="js/mapbox-geocoder-utils.js"></script>
 <!-- Custom JS -->
 <script>
   mapboxgl.accessToken = MAPBOX_TOKEN;
@@ -48,6 +48,17 @@
          // .setHTML("<p>Remember The Alamo!</p>")
 
   marker.setPopup(popup)
+
+
+  geocode("900 JACKSON ST #410,Dallas, tx, 75202", MAPBOX_TOKEN).then(function(result) {
+    console.log(result);
+    map.setCenter(result);
+    map.setZoom(15);
+  });
+
+  reverseGeocode({lng: -96.802944, lat:32.777995}, MAPBOX_TOKEN).then(function(results) {
+    // logs the address for Codeup Dallas
+    console.log(results);})
 </script>
 </body>
 </html>
