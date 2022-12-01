@@ -1,119 +1,93 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Weather Map Project</title>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
-    <style>
-        #map {
-            /* the width and height may be set to any size */
-            width: 100%;
-            height: 500px;
-        }
-    </style>
+    <title>Mapbox API</title>
+
+
+    <!--MAPBOX CDN-->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 </head>
-<div id='map'></div>
-<script src="js/Keys.js"></script>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-<script src ="js/weather_map_project.js"> </script>
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
+<body class="bg-light">
 
-<body>
-<!--Header/title of the Webpage-->
-<h1>Weather Map</h1>
-<!--Search bar for locations/cities-->
-<form class="d-flex" role="search">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success" type="submit">Search</button>
-</form>
-
-<!--Five days of weather reports-->
-<div class="row">
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-            </div>
-        </div>
+<!--NAVBAR START-->
+<div class="container-fluid d-flex justify-content-between align-items-center">
+    <h1 class="text-light">Weather Map Data</h1>
+    <div class="container w-25 me-0">
+        <p id="city" class="text-secondary text-end" style="font-size: small"></p>
     </div>
 </div>
+<!--NAVBAR END-->
 
-<script>
-    mapboxgl.accessToken = MAPBOX_TOKEN;
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 10,
-        center: [-96.802944, 32.777995]
-    });
+<!--SEARCH BAR START-->
+<div class="container-fluid d-flex justify-content-end">
+    <div class="input-group m-3 w-50">
+        <input type="text" id="search-input" class="form-control bg-secondary text-dark" placeholder="Search locations..." aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary text-light" type="button" id="search-btn">Search Weather</button>
+    </div>
+</div>
+<!--SEARCH BAR END-->
 
-    var marker = new mapboxgl.Marker()
-        .setLngLat([-96.802944, 32.777995])// same as the starting point in map
-        .addTo(map);
+<!--5DAY FORECAST START-->
+<div id="weather" class="container-fluid d-flex justify-content-evenly mb-3" >
+</div>
+<!--5DAY FORECAST END-->
 
-    var popup = new mapboxgl.Popup()
-        //.setLngLat([-96.802944, 32.777995])
-        .setHTML("<h1>Dallas Founder's Square</h1><br><p>Codeup Rocks!</p>")
-    //.addTo(map)
-
-    //var alamoPopup = new mapboxgl.Popup()
-    // .setHTML("<p>Remember The Alamo!</p>")
-
-    marker.setPopup(popup)
+<!--MAPBOX START-->
+<div class="container-fluid">
+    <div id='map' style='width: 100%; height: 400px;'></div>
+</div>
+<!--MAPBOX END-->
 
 
-    geocode("900 JACKSON ST #410,Dallas, tx, 75202", MAPBOX_TOKEN).then(function(result) {
-        console.log(result);
-        map.setCenter(result);
-        map.setZoom(15);
-    });
-
-    reverseGeocode({lng: -96.802944, lat:32.777995}, MAPBOX_TOKEN).then(function(results) {
-        // logs the address for Codeup Dallas
-        console.log(results);})
-</script>
-
+<!--JQUERY CDN-->
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<!--MAPBOX CDN-->
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+<!--BOOTSTRAP CDN-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!--CUSTOM JS SCRIPTS-->
+<script src="js/Keys.js"></script>
+<script src="js/weather_map_project.js"></script>
 
 </body>
-
 </html>
+<!--<script>-->
+<!--    mapboxgl.accessToken = MAPBOX_TOKEN;-->
+<!--    var map = new mapboxgl.Map({-->
+<!--        container: 'map',-->
+<!--        style: 'mapbox://styles/mapbox/streets-v9',-->
+<!--        zoom: 10,-->
+<!--        center: [-96.802944, 32.777995]-->
+<!--    });-->
+
+<!--    var marker = new mapboxgl.Marker()-->
+<!--        .setLngLat([-96.802944, 32.777995])// same as the starting point in map-->
+<!--        .addTo(map);-->
+
+<!--    var popup = new mapboxgl.Popup()-->
+<!--        //.setLngLat([-96.802944, 32.777995])-->
+<!--        .setHTML("<h1>Dallas Founder's Square</h1><br><p>Codeup Rocks!</p>")-->
+<!--    //.addTo(map)-->
+
+<!--    //var alamoPopup = new mapboxgl.Popup()-->
+<!--    // .setHTML("<p>Remember The Alamo!</p>")-->
+
+<!--    marker.setPopup(popup)-->
+
+
+<!--    geocode("900 JACKSON ST #410,Dallas, tx, 75202", MAPBOX_TOKEN).then(function(result) {-->
+<!--        console.log(result);-->
+<!--        map.setCenter(result);-->
+<!--        map.setZoom(15);-->
+<!--    });-->
+
+<!--    reverseGeocode({lng: -96.802944, lat:32.777995}, MAPBOX_TOKEN).then(function(results) {-->
+<!--        // logs the address for Codeup Dallas-->
+<!--        console.log(results);})-->
+<!--</script>-->
+

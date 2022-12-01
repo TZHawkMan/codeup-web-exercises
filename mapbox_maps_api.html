@@ -2,9 +2,129 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Favorite restaurant</title></titl></title>
+    <title>MapBox API Exercise</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 90%;
+            height: 400px;
+        }
+    </style>
 </head>
 <body>
+
+<div id="zoom-selection">
+    <label htmlFor="cars">Choose a zoom level:</label>
+
+    <select name="zoom" id="zoom">
+        <option value="5">Zoom level: 5</option>
+        <option value="15">Zoom level: 15</option>
+        <option value="20">Zoom level: 20</option>
+    </select>
+</div>
+
+<div id="btn">
+    <button id="hide-button">Hide all markers</button>
+</div>
+
+
+The HTML element that serves as the Mapbox container
+<div id='map'></div>
+
+
+
+
+<!-- Mapbox JS -->
+<script src="js/Keys.js"></script> <!-- 1. bring in keys file first -->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+
+<script>
+    mapboxgl.accessToken = MAPBOX_TOKEN; <!-- 2. add in mapbox token -->
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 15,
+        center: [-96.802944, 32.777995]
+    });
+    var restaurants = [
+        {
+            name: "Chimalma Taco Bar Co.",
+            location: [-96.8057814983988, 32.77875455070267],
+            type: "Mexican Restuarant",
+            //image: "https://lh5.googleusercontent.com/p/AF1QipOF_JQAQN-IfA3fBKXta-jdRqsmbGq7OfTZcCcq=w141-h235-n-k-no-nu"
+        },
+        {
+            name: "Twisted Trompo",
+            location: [-96.8037814983988, 32.77675455070267],
+            type: "Taco Restuarant",
+            //image: "https://lh5.googleusercontent.com/p/AF1QipOF_JQAQN-IfA3fBKXta-jdRqsmbGq7OfTZcCcq=w141-h235-n-k-no-nu"
+        },
+        {
+            name: "Wing Bucket",
+            location: [-96.80152389948086, 32.77998065413109],
+            type: "Chicken Restuarant",
+            //image: "https://lh5.googleusercontent.com/p/AF1QipOF_JQAQN-IfA3fBKXta-jdRqsmbGq7OfTZcCcq=w141-h235-n-k-no-nu"
+        },
+    ];
+
+
+    // let select = document.getElementById("zoom");
+    //
+    // select.addEventListener('change', function(){
+    //     console.log(select.value);
+    //     map.setZoom()
+    // })
+
+    document.getElementById('zoom').addEventListener('change', (e) => {
+        let zoomNum = e.target.value;
+        map.zoomTo(zoomNum, { duration: 3000 });
+    });
+
+
+    // restaurants.forEach(function(restaurant){
+    //     console.log(restaurant.location);
+    //     restaurant.location = [];
+    //     console.log(restaurant.location);
+    // });
+    //});
+
+    // $('#zoom').children().click(function(){
+    //     console.log($(this).attr("value"));
+    // })
+
+    // var marker = new mapboxgl.Marker()
+    //     .setLngLat([-96.8057814983988, 32.77875455070267])
+    //     .addTo(map);
+    //
+    // var restaurantPopup = new mapboxgl.Popup()
+    //     .setHTML("<p>Chimalma Taco Bar Co.</p>");
+    //
+    // marker.setPopup(restaurantPopup);
+
+    var marker;
+
+    restaurants.forEach(function(restaurant){
+        var popup = new mapboxgl.Popup()
+            //.setHTML('<img src=' + restaurant.image + '> <h3>' + restaurant.name + '</h3> <p>' + restaurant.type + '</p>');
+            .setHTML('<h3>' + restaurant.name + '</h3> <p>' + restaurant.type + '</p>');
+        marker = new mapboxgl.Marker()
+            .setLngLat(restaurant.location)
+            .addTo(map)
+            .setPopup(popup);
+        popup.addTo(map);
+
+    });
+
+    $('#hide-button').click(function(){
+        marker = null;
+    });
+
+</script>
 
 </body>
 </html>
