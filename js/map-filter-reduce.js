@@ -58,6 +58,7 @@ let total=users.reduce(function(total, user){
 console.log(total);
 let average = total/users.length
 console.log (average)
+
 //Use .reduce to get the longest email from the list of users.
 let longestEmail = useremail.reduce((longest,email) => {
     if(email.length > longest.length){
